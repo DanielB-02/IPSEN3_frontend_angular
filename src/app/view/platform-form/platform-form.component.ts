@@ -38,7 +38,7 @@ export class PlatformFormComponent {
   checkName(platformName:string){
     for(var existingPlatform of this.platforms){
       if(existingPlatform.platformName == platformName ||
-        this.isAlikeWithMisspelling(existingPlatform.platformName, platformName, 1)){
+        this.isAlikeWithMisspelling(existingPlatform.platformName, platformName, 0.5)){
         this.errorShown = true;
         setTimeout(() => {
           this.errorShown = false;
@@ -56,6 +56,6 @@ export class PlatformFormComponent {
   }
 
   gotoPlatformList() {
-    this.router.navigate(['/platforms']);
+    this.router.navigateByUrl('main-view/platforms');
   }
 }
