@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import {JwtPayload} from "../model/jwt/jwt.model";
+import {jwtDecode} from "jwt-decode";
 
 const TOKEN = 'l_token';
 const USER = 'l_user';
@@ -58,13 +60,35 @@ export class UserStorageService {
     if ( this.getToken() === null){
       return false;
     }
-    // const role: string = this.getUserRole();
-    // return role == 'CUSTOMER';
     return true;
   }
 
   public signOut() {
     window.localStorage.removeItem(TOKEN);
     window.localStorage.removeItem(USER);
+  }
+  public isAdmin(): boolean {
+    const tokenJWT = localStorage.getItem(TOKEN);
+    if (tokenJWT) {
+      try {
+        const decodedJWT: JwtPayload = jwtDecode(tokenJWT);
+        return decodedJWT.role.some(role => role.authority === 'ADMIN');
+      } catch (error) {
+        console.error('Invalid token', error);
+      }
+    }
+    return false;
+  }
+  public isReadonly(): boolean {
+    const tokenJWT = localStorage.getItem(TOKEN);
+    if (tokenJWT) {
+      try {
+        const decodedJWT: JwtPayload = jwtDecode(tokenJWT);
+        return decodedJWT.role.some(role => role.authority === 'READONLY');
+      } catch (error) {
+        console.error('Invalid token', error);
+      }
+    }
+    return false;
   }
 }
