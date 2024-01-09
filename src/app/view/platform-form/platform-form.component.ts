@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import {Platform} from "../../model/platform/platform";
 import {PlatformService} from "../../services/platform.service";
 import {FormGroup} from "@angular/forms";
+import * as stringSimilarity from 'string-similarity';
 
 @Component({
   selector: 'app-platform-form',
@@ -36,7 +37,8 @@ export class PlatformFormComponent {
 
   checkName(platformName:string){
     for(var existingPlatform of this.platforms){
-      if(existingPlatform.platformName == platformName){
+      if(existingPlatform.platformName == platformName ||
+        this.isAlikeWithMisspelling(existingPlatform.platformName, platformName, 1)){
         this.errorShown = true;
         setTimeout(() => {
           this.errorShown = false;
@@ -46,6 +48,11 @@ export class PlatformFormComponent {
       }
     }
   return true
+  }
+
+  isAlikeWithMisspelling(str1: string, str2: string, tolerance: number): boolean {
+    const similarity = stringSimilarity.compareTwoStrings(str1, str2);
+    return similarity >= (1 - tolerance);
   }
 
   gotoPlatformList() {
