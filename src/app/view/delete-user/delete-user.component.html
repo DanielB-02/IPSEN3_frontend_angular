@@ -1,0 +1,15 @@
+<!-- delete-user.component.html -->
+<div class="user-cards-container">
+  <div *ngFor="let user of users" class="user-card">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">{{ user.firstName }} {{ user.lastName }}</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text email">{{ user.email }}</p>
+        <p class="card-text role">{{ user.role }}</p>
+        <button class="btn btn-danger" (click)="deleteProduct(user)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -18,4 +18,7 @@ export class AdminPanelComponent {
   navigateToSignUp() {
     this.router.navigate(['/main-view/sign-up']);
   }
+  navigateTodeleteUSer() {
+    this.router.navigate(['/main-view/delete-user']);
+  }
 }
