@@ -17,7 +17,7 @@ export class PlatformService {
   }
 
   public findAll(): Observable<Platform[]> {
-    return this.http.get<Platform[]>(this.platformsUrl);
+    return this.http.get<Platform[]>(this.platformsUrl + '/sorted');
   }
 
   public save(platform: Platform) {
@@ -41,4 +41,12 @@ export class PlatformService {
   public find(id: string): Observable<Platform> {
       return this.http.get<Platform>(`${this.platformsUrl}/${id}`);
   }
+
+  /*public showScoresOfAllPlatforms(): Observable<Platform[]> {
+      return this.http.get<Platform[]>(this.platformsUrl + '/scoresAllPlatforms')
+          .pipe(
+              map(platforms => platforms)
+          );
+  }*/
+
 }

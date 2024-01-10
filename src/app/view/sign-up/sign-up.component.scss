@@ -10,35 +10,49 @@
   flex: 0.35;
 }
 
-.login-form {
+.mat-mdc-card-title {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #e96453;
+}
+
+.signup-form {
   display: flex;
   flex-direction: column;
   gap: 6px;
   margin-left: 16px;
   margin-right: 16px;
+  justify-content: center;
 }
 
-.login-form-input-field {
+
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
 }
 
-.login-form-submit {
+.button-container button {
+  width: 48%;
+}
+
+.signup-form-input-field {
+  width: 100%;
+}
+
+.signup-form-submit {
   display: flex;
   justify-content: center;
   margin-top: 52px;
 }
 
-.login-form-submit-button {
+.signup-form-submit-button {
   height: 40px;
   width: 40%;
   margin-bottom: 30px;
-}
-
-.login-form-logo {
-  width: 100%;
-  height: auto;
-  margin-bottom: 30px;
-  padding: 16px;
 }
 
 .mat-mdc-raised-button.mat-primary {

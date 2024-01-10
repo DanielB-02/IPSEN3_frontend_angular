@@ -46,7 +46,7 @@ export class AuthService {
   }
 
   register(signupRequest: any): Observable<any> {
-    return this.http.post(BASIC_URL + "sign-up", signupRequest);
+    return this.http.post(BASIC_URL + "signup", signupRequest);
   }
 
   // getUserById(): Observable<any> {

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Answer } from '../model/answer/answer';
 
 import {environment} from "../environments/environment";
-import {Question} from "../model/question/question";
+import {AnswerForm} from "../model/api/answer-form/answer-form";
 
 const BASIC_URL = environment['BASIC_URL'];
 
@@ -19,6 +19,15 @@ export class AnswerService {
   getAnswersOfQuestion(questionId: string): Observable<Answer[]> {
     const url = `${this.answersUrl}/question/${questionId}`;
     return this.http.get<Answer[]>(url);
+  }
+
+  submitAlteredAnswer(answer: Answer): Observable<Answer> {
+    const url: string = `${this.answersUrl}/${answer.id}`;
+    const answerForm : AnswerForm = {
+      textAnswer: answer.textAnswer,
+      questionId: answer.question.id
+    };
+    return this.http.put<Answer>(url, answerForm);
   }
 
 }

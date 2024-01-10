@@ -3,14 +3,14 @@
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
       <tr>
-        <th scope="col">Name</th>
+        <th scope="col">Platform Name</th>
+        <th scope="col" class="score-header-list-platforms">Risicoscore</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let platform of platforms">
-        <td>
-          <a [routerLink]="['/main-view/platform', platform.id]">{{ platform.platformName }}</a>
-        </td>
+        <td><a [routerLink]="['/main-view/platform', platform.id]">{{ platform.platformName }}</a></td>
+        <td class="score-cell">{{ platform.score }}</td>
       </tr>
       </tbody>
     </table>

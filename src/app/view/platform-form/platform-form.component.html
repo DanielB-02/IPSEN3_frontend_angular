@@ -7,10 +7,11 @@
                class="form-control"
                id="name"
                name="name"
-               placeholder="Enter your name"
+               placeholder="Enter the name of the platform"
+               [maxlength]="25"
                required #name="ngModel">
       </div>
-      <div [hidden]="!name.pristine" class="alert alert-danger">Name is required</div>
+      <div [hidden]="!errorShown" class="alert alert-danger">Name is already used</div>
       <button type="submit" [disabled]="!userForm.form.valid"
               class="btn btn-info">Submit</button>
     </form>

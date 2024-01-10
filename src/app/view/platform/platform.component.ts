@@ -5,7 +5,7 @@ import {PlatformService} from "../../services/platform.service";
 @Component({
   selector: 'app-platform',
   templateUrl: './platform.component.html',
-  styleUrl: './platform.component.css'
+  styleUrl: './platform.component.scss'
 })
 export class PlatformComponent {
   platforms: Platform[];
@@ -14,9 +14,9 @@ export class PlatformComponent {
   }
 
   ngOnInit() {
-    this.platformService.findAll().subscribe(
-      data => {
+    this.platformService.findAll().subscribe(data => {
       this.platforms = data;
     });
+
   }
 }

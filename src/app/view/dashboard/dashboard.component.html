@@ -3,27 +3,29 @@
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
       <tr>
-        <th scope="col">Name top 10</th>
+        <th scope="col">Top 10</th>
+        <th scope="col" class="score-header-dashboard">Risicoscore</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let platform of platformsAsc">
         <td>{{ platform.platformName }}</td>
+        <td class="score-cell">{{ platform.score }}</td>
       </tr>
-
       </tbody>
     </table>
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
       <tr>
-        <th scope="col">Name bottom 5</th>
+        <th scope="col">Bottom 5</th>
+        <th scope="col" class="score-header-dashboard">Risicoscore</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let platform of platformsDesc">
         <td>{{ platform.platformName }}</td>
+        <td class="score-cell">{{ platform.score }}</td>
       </tr>
-
       </tbody>
     </table>
   </div>

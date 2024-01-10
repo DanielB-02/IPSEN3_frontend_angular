@@ -9,7 +9,7 @@ import {AppRoutingModule} from "./app.routes";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {PlatformService} from "./services/platform.service";
-import { DashboardComponent } from './view/dashboard/dashboard/dashboard.component';
+import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { PlatformDetailComponent } from './view/platform-detail/platform-detail.component';
 import { NavigationColumnComponent } from './view/navigation-column/navigation-column.component';
 import {ApiHeadersInterceptor} from "./conf/http-interceptor";
@@ -21,6 +21,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MainViewComponent} from "./view/main-view/main-view.component";
+import {SignUpComponent} from "./view/sign-up/sign-up.component";
+// import { MatFormFieldModule } from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import {MainViewComponent} from "./view/main-view/main-view.component";
     PlatformDetailComponent,
     NavigationColumnComponent,
     LoginComponent,
-    MainViewComponent
+    MainViewComponent,
+    SignUpComponent
   ],
 
   imports: [
@@ -43,11 +46,11 @@ import {MainViewComponent} from "./view/main-view/main-view.component";
     BrowserAnimationsModule,
     MatCardModule,
     MatInputModule,
+    // MatFormFieldModule,
     ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
-    MatToolbarModule,
-
+    MatToolbarModule
   ],
   providers: [
     PlatformService,

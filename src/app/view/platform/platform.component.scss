@@ -1,0 +1,28 @@
+$sidebar-box-shadow: 0px 0px 45px 0px rgba(0,0,0,0.6);
+
+.score-header-list-platforms {
+  width: 50px;
+}
+
+.score-cell {
+  text-align: center;
+}
+
+.card-body {
+  background-color: #424242;
+  color: white;
+  box-shadow: $sidebar-box-shadow;
+}
+
+.table {
+  border: none;
+}
+
+.table th,
+.table td {
+  border: none;
+}
+
+.card {
+  border: none;
+}

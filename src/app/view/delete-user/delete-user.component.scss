@@ -1,0 +1,46 @@
+/* delete-user.component.scss */
+.user-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); // This will create a responsive grid layout
+  gap: 1rem; // Space between cards
+  padding-top: 50px;
+}
+
+.user-card {
+  .card {
+    background-color: #2C2C2E; // Dark mode background
+    color: #FFFFFF; // Text color for dark mode
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+
+    .card-header {
+      background-color: #1C1C1E; // Slightly darker for the header
+      border-bottom: 1px solid #424245; // Separator color
+      .card-title {
+        font-size: 1.5rem; // Larger title font size
+      }
+    }
+
+    .card-body {
+      .email {
+        font-size: 0.9rem; // Smaller email font size
+      }
+
+      .role {
+        font-size: 1rem; // Bigger role font size
+        color: #FFFFFF; // White color for role
+      }
+
+      .btn-danger {
+        background-color: #FF3B30; // iOS red button color
+        border-color: #FF3B30;
+        &:hover {
+          background-color: #FF2D55; // Darker shade when hovered
+          border-color: #FF2D55;
+        }
+      }
+    }
+  }
+}

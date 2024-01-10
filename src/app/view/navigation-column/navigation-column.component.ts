@@ -10,10 +10,17 @@ import {AuthService} from "../../auth/auth.service";
   styleUrl: './navigation-column.component.scss'
 })
 export class NavigationColumnComponent {
+  isAdmin: boolean = false;
+  isReadonly: boolean = false;
     constructor(
       private router: Router,
-      private authService: AuthService
+      private authService: AuthService,
+      private userStorageService: UserStorageService
   ) {}
+  ngOnInit(): void {
+    this.isAdmin = this.userStorageService.isAdmin();
+    this.isReadonly = this.userStorageService.isReadonly()
+  }
 
   uitloggenClicked(): void {
     // alert('tets');

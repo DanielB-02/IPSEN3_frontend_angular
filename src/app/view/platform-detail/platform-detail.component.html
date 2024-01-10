@@ -5,6 +5,8 @@
       <h3>{{ question.textQuestion }}</h3>
       <ul>
         <li *ngFor="let answer of question.answers; let i = index">
+          <button class="altered-answer-submit-button" mat-raised-button color="primary" type="submit"
+                  (click)="onSubmitAlteredAnswer(answer)">Save Answer</button>
           <textarea class="input-field" [(ngModel)]="answer.textAnswer" placeholder="Enter answer"></textarea>
         </li>
       </ul>

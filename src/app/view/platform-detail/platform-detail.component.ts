@@ -6,7 +6,6 @@ import {Platform} from "../../model/platform/platform";
 import {PlatformService} from "../../services/platform.service";
 import {Answer} from "../../model/answer/answer";
 import {AnswerService} from "../../services/answer.service";
-import { FormsModule } from '@angular/forms';
 import { forkJoin } from 'rxjs';
 import {map} from "rxjs";
 
@@ -32,6 +31,11 @@ export class PlatformDetailComponent implements OnInit {
     this.platformId = this.route.snapshot.paramMap.get('id');
     this.loadPlatform();
     this.loadQuestions();
+  }
+
+  onSubmitAlteredAnswer(answer: Answer): void{
+    this.answerService.submitAlteredAnswer(answer)
+      .subscribe();
   }
 
   private loadPlatform(): void {
