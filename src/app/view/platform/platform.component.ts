@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Platform} from "../../model/platform/platform";
 import {PlatformService} from "../../services/platform.service";
+import {UserStorageService} from "../../auth/user-storage.service";
 
 @Component({
   selector: 'app-platform',

@@ -8,7 +8,7 @@ import * as stringSimilarity from 'string-similarity';
 @Component({
   selector: 'app-platform-form',
   templateUrl: './platform-form.component.html',
-  styleUrls: ['./platform-form.component.css']
+  styleUrls: ['./platform-form.component.scss']
 })
 export class PlatformFormComponent {
 

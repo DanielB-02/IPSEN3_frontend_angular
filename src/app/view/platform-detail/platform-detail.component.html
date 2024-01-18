@@ -1,15 +1,19 @@
-<div class="form-container">
-  <h2>{{ platform.platformName }} Questions</h2>
-  <ul>
-    <li *ngFor="let question of questions">
-      <h3>{{ question.textQuestion }}</h3>
-      <ul>
-        <li *ngFor="let answer of question.answers; let i = index">
-          <button class="altered-answer-submit-button" mat-raised-button color="primary" type="submit"
-                  (click)="onSubmitAlteredAnswer(answer)">Save Answer</button>
-          <textarea class="input-field" [(ngModel)]="answer.textAnswer" placeholder="Enter answer"></textarea>
-        </li>
-      </ul>
-    </li>
-  </ul>
+<div #pdfContent class="form-container">
+    <h2>{{ platform.platformName }} Questions</h2>
+  <div class="nav-item" *ngIf="!isReadonly">
+     <button (click)="generatePDF()">Export as PDF </button>
+  </div>
+    <ul>
+      <li *ngFor="let question of questions">
+        <h3>{{ question.textQuestion }}</h3>
+        <ul>
+          <li *ngFor="let answer of question.answers; let i = index">
+            <button class="altered-answer-submit-button" mat-raised-button color="primary" type="submit"
+                    (click)="onSubmitAlteredAnswer(answer)">Save Answer</button>
+            <textarea class="input-field" [(ngModel)]="answer.textAnswer" placeholder="Enter answer"></textarea>
+          </li>
+        </ul>
+      </li>
+    </ul>
 </div>
+

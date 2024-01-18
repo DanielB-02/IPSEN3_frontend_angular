@@ -1,0 +1,41 @@
+.card {
+  margin: 5rem 0;
+  border: none;
+  .card-body {
+    background-color: #424242;
+    color: white;
+    border: none;
+    form {
+      .form-group {
+        label {
+          color: white;
+        }
+        input {
+          background-color: #333333;
+          color: white;
+          border: 1px solid #555555;
+          &::placeholder {
+            color: #999999;
+          }
+        }
+        .alert.alert-danger {
+          background-color: #721c24;
+          color: #f8d7da;
+          border: 1px solid #f5c6cb;
+        }
+      }
+      button.btn-info {
+        background-color: #e96453;
+        color: white;
+        border: none;
+        &:hover {
+          background-color: #e96453;
+        }
+        &:disabled {
+          background-color: #e96453;
+          color: white;
+        }
+      }
+    }
+  }
+}
