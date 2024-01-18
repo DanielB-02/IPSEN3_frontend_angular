@@ -27,3 +27,19 @@ $sidebar-box-shadow: 0px 0px 45px 0px rgba(0,0,0,0.6);
 .card {
   border: none;
 }
+.card {
+  color: #ffffff; // This sets the default text color to white for everything in the card
+
+  a {
+    color: #ffffff; // This ensures links are also white
+    &:hover {
+      color: lighten(#ffffff, 10%); // Optional: Slightly lighten the link color on hover
+    }
+  }
+
+  .table {
+    th, td {
+      color: #ffffff; // Specifically target table header and data cells
+    }
+  }
+}

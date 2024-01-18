@@ -27,10 +27,8 @@
           <img src="assets/img/icon-files.png" alt="dashboard icon" class="nav-icon">
         </a>
       </li>
-      <li class="nav-item">
-        <a [routerLink]="isReadonly ? null : '/main-view/addplatform'"
-           class="nav-link nav-text-element"
-           [class.disabled-link]="isReadonly">
+      <li class="nav-item" *ngIf="!isReadonly">
+        <a routerLink="/main-view/addplatform" class="nav-link nav-text-element">
           <i class="tim-icons icon-chart-pie-36"></i>
           <span>Add Platform</span>
           <img src="assets/img/icon-add-file.png" alt="dashboard icon" class="nav-icon">

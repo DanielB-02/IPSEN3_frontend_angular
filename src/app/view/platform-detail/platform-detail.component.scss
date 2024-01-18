@@ -49,3 +49,25 @@ li {
   height: 250px;
   resize: vertical;
 }
+
+.nav-item:not(.isReadonly) {
+  button {
+    background-color: #e96453; // Button background color
+    color: #cccccc; // Text color
+    border: none; // Remove default border
+    border-radius: 20px; // Rounded corners
+    padding: 10px 20px; // Padding inside the button
+    font-size: 16px; // Font size of the text inside the button
+    cursor: pointer; // Cursor to pointer to indicate it's clickable
+    transition: all 0.3s ease; // Smooth transition for hover effect
+
+    &:hover {
+      background-color: darken(#e96453, 10%); // Darken the background on hover
+      color: #ffffff; // Change text color on hover
+    }
+
+    &:focus {
+      outline: none; // Remove the focus outline
+    }
+  }
+}

@@ -1,5 +1,6 @@
 <div class="card my-5">
   <div class="card-body">
+    <!-- Top 10 Table -->
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
       <tr>
@@ -9,11 +10,13 @@
       </thead>
       <tbody>
       <tr *ngFor="let platform of platformsAsc">
-        <td>{{ platform.platformName }}</td>
+        <td><a [routerLink]="['/main-view/platform', platform.id]">{{ platform.platformName }}</a></td>
         <td class="score-cell">{{ platform.score }}</td>
       </tr>
       </tbody>
     </table>
+
+    <!-- Bottom 5 Table -->
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
       <tr>
@@ -23,10 +26,11 @@
       </thead>
       <tbody>
       <tr *ngFor="let platform of platformsDesc">
-        <td>{{ platform.platformName }}</td>
+        <td><a [routerLink]="['/main-view/platform', platform.id]">{{ platform.platformName }}</a></td>
         <td class="score-cell">{{ platform.score }}</td>
       </tr>
       </tbody>
     </table>
   </div>
 </div>
+<app-navigation-column></app-navigation-column>
