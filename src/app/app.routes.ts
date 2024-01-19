@@ -9,6 +9,7 @@ import {MainViewComponent} from "./view/main-view/main-view.component";
 import {DashboardComponent} from "./view/dashboard/dashboard.component";
 import {SignUpComponent} from "./view/sign-up/sign-up.component";
 import {DeleteUserComponent} from "./view/delete-user/delete-user.component";
+import {ArchiefComponent} from "./view/archief/archief.component";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -20,7 +21,8 @@ const routes: Routes = [
       { path: 'platform/:id', component: PlatformDetailComponent },
       { path: 'adminpanel', component: AdminPanelComponent },
       { path: 'sign-up', component: SignUpComponent},
-      { path: 'delete-user', component: DeleteUserComponent}
+      { path: 'delete-user', component: DeleteUserComponent},
+      { path: 'archief', component: ArchiefComponent}
     ]
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' }

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { ModelComponent } from './model/model.component';
 import { PlatformComponent } from './view/platform/platform.component';
 import { PlatformFormComponent } from './view/platform-form/platform-form.component';
 import {AppRoutingModule} from "./app.routes";
@@ -25,43 +24,45 @@ import {SignUpComponent} from "./view/sign-up/sign-up.component";
 // import { MatFormFieldModule } from "@angular/material/form-field";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ModelComponent,
-    PlatformComponent,
-    PlatformFormComponent,
-    DashboardComponent,
-    PlatformDetailComponent,
-    NavigationColumnComponent,
-    LoginComponent,
-    MainViewComponent,
-    SignUpComponent
-  ],
+    declarations: [
+        AppComponent,
+        PlatformComponent,
+        PlatformFormComponent,
+        DashboardComponent,
+        PlatformDetailComponent,
+        NavigationColumnComponent,
+        LoginComponent,
+        MainViewComponent,
+        SignUpComponent,
+    ],
 
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatInputModule,
-    // MatFormFieldModule,
-    ReactiveFormsModule,
-    MatIconModule,
-    MatButtonModule,
-    MatToolbarModule
-  ],
-  providers: [
-    PlatformService,
-    LoginComponent,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ApiHeadersInterceptor,
-      multi: true,
-    }
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatInputModule,
+        // MatFormFieldModule,
+        ReactiveFormsModule,
+        MatIconModule,
+        MatButtonModule,
+        MatToolbarModule
+    ],
+    providers: [
+        PlatformService,
+        LoginComponent,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: ApiHeadersInterceptor,
+            multi: true,
+        }
+    ],
+    exports: [
+        NavigationColumnComponent
+    ],
 
-  bootstrap: [AppComponent]
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

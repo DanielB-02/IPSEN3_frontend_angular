@@ -1,0 +1,21 @@
+  <div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Platform Name</th>
+          <th scope="col" class="score-header-list-platforms"></th>
+          <th scope="col" class="score-header-list-platforms">Risicoscore</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let platform of platforms">
+          <td><a [routerLink]="['/main-view/platform', platform.id]">{{ platform.platformName }}</a></td>
+          <td><button class="restore-button" (click)="setPlatformStatusFalse(platform)">Restore</button></td>
+          <td class="score-cell">{{ platform.score }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
