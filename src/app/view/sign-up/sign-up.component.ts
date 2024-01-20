@@ -4,6 +4,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import {AuthService} from "../../auth/auth.service";
 import { MatInput } from "@angular/material/input";
+import {AddRoleComponent} from "../admin-panel/options/add-role/add-role.component";
+import {RoleService} from "../../services/role.service";
+import {Role} from "../../model/role/role";
 
 @Component({
   selector: 'app-sign-up',
@@ -15,22 +18,34 @@ export class SignUpComponent {
   signupForm!: FormGroup;
   isSpinning = false;
   hidePassword = true;
+  roles: Role[] = [];
+
 
   constructor(
     private fb: FormBuilder,
     private snackBar: MatSnackBar,
     private authService: AuthService,
-    private router: Router) { }
+    private router: Router,
+    private roleService: RoleService
+  ) { }
+
 
   ngOnInit(): void {
+    this.roleService.readAll().subscribe(data => {
+      this.roles = data;
+      console.log(this.roles)
+    })
     this.signupForm = this.fb.group({
       firstName: [null, [Validators.required]],
       lastName: [null, [ Validators.required]],
       email: [null, [Validators.email, Validators.required]],
       password: [null, [Validators.required]],
       confirmPassword: [null, [Validators.required]],
-      fictRole: [false],
+      roleId: [null, [Validators.required]]
     });
+
+
+
   }
 
   togglePasswordVisibility() {
