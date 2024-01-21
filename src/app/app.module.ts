@@ -22,6 +22,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MainViewComponent} from "./view/main-view/main-view.component";
 import {SignUpComponent} from "./view/sign-up/sign-up.component";
+import {AddQuestionComponent} from "./view/add-question/add-question.component";
+
 // import { MatFormFieldModule } from "@angular/material/form-field";
 
 @NgModule({
@@ -35,7 +37,8 @@ import {SignUpComponent} from "./view/sign-up/sign-up.component";
     NavigationColumnComponent,
     LoginComponent,
     MainViewComponent,
-    SignUpComponent
+    SignUpComponent,
+    AddQuestionComponent
   ],
 
   imports: [

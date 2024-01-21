@@ -21,4 +21,8 @@ export class AdminPanelComponent {
   navigateTodeleteUSer() {
     this.router.navigate(['/main-view/delete-user']);
   }
+
+  navigateToAddQuestion(){
+    this.router.navigate(['/main-view/add-question']);
+  }
 }
