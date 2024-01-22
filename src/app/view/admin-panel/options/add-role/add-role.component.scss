@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.user-form-container {
+  padding-top: 50px;
+  padding-left: 10px;
+}
+
+.user-form-card {
+  background-color: #2C2C2E;
+  color: #FFFFFF;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.form-header {
+  background-color: #1C1C1E;
+  border-bottom: 1px solid #424245;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.form-body {
+  padding-top: 10px;
+}
+
+
+.checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+}
+
+.checkbox-label {
+  font-size: 1rem;
+}
+
+.role-input {
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #424245;
+  border-radius: 0.25rem;
+  color: #FFFFFF;
+  background-color: #2C2C2E;
+}
+
+.enter-button {
+  background-color: #FF3B30;
+  border: none;
+  border-radius: 0.25rem;
+  color: #FFFFFF;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  &:hover {
+    //background-color: #FF2D55;
+  }
+}

@@ -30,4 +30,14 @@ export class AnswerService {
     return this.http.put<Answer>(url, answerForm);
   }
 
+  submitNewAnswer(answer: Answer): Observable<Answer> {
+    const url: string = this.answersUrl;
+    const answerForm : AnswerForm = {
+      textAnswer: answer.textAnswer,
+      questionId: answer.question.id
+    };
+    return this.http.post<Answer>(url, answerForm);
+  }
+
+
 }

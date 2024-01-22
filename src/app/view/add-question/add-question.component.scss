@@ -7,7 +7,7 @@
 }
 
 .column {
-  flex: 0.35;
+  flex: 0.8;
 }
 
 .mat-mdc-card-title {
@@ -15,10 +15,10 @@
   justify-content: center;
   padding-top: 20px;
   padding-bottom: 20px;
-  color: white;
+  color: #e96453;
 }
 
-.signup-form {
+.question-form {
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -39,17 +39,17 @@
   width: 48%;
 }
 
-.signup-form-input-field {
+.question-form-input-field {
   width: 100%;
 }
 
-.signup-form-submit {
+.question-form-submit {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 52px;
 }
 
-.signup-form-submit-button {
+.question-form-submit-button {
   height: 40px;
   width: 40%;
   margin-bottom: 30px;
@@ -58,5 +58,3 @@
 .mat-mdc-raised-button.mat-primary {
   --mdc-protected-button-container-color: #e96453;
 }
-
-
