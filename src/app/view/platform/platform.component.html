@@ -12,7 +12,7 @@
       <tr *ngFor="let platform of platforms">
         <td><a [routerLink]="['/main-view/platform', platform.id]">{{ platform.platformName }}</a></td>
         <td>
-          <button *ngIf="!isReadonly" class="archief-button" (click)="setPlatformStatusFalse(platform)">Archive</button>
+          <button *ngIf="!isNotReadOnlyOrFicter" class="archief-button" (click)="setPlatformStatusFalse(platform)">Archive</button>
         </td>
         <td class="score-cell">{{ platform.score }}</td>
       </tr>

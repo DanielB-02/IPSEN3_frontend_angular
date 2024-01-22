@@ -11,6 +11,7 @@ import {UserStorageService} from "../../auth/user-storage.service";
 export class PlatformComponent{
   platforms: Platform[];
   isReadonly: boolean = false;
+  isNotReadOnlyOrFicter= false;
 
   constructor(private platformService: PlatformService,
               private userStorageService: UserStorageService) {
@@ -20,7 +21,7 @@ export class PlatformComponent{
     this.platformService.platforms$.subscribe(data => {
       this.platforms = data.filter(platform => platform.status !== true);
     });
-    this.isReadonly = this.userStorageService.isReadonly()
+    this.isNotReadOnlyOrFicter = this.userStorageService.isReadonlyOrFicter();
   }
   setPlatformStatusFalse(platform: Platform): void {
     const isConfirmed = confirm(`Are you sure you want to archive the platform: ${platform.platformName}?`);
