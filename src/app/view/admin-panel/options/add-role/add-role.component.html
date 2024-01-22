@@ -1,0 +1,59 @@
+<div class="user-form-container">
+  <div class="user-form-card">
+    <div class="form-header">Create New Role</div>
+    <div class="form-body">
+      <div class="checkbox-group">
+        <label class="checkbox-label"><input type="checkbox" name="DOMEIN_BEHEER_ADMIN" (change)="onCheckboxChange('DOMEIN_BEHEER_ADMIN')"> Domein Beheer Admin</label>
+        <label class="checkbox-label"><input type="checkbox" name="DOMEIN_BEHEER_FICTER" (change)="onCheckboxChange('DOMEIN_BEHEER_FICTER')"> Domein Beheer Ficter</label>
+        <label class="checkbox-label"><input type="checkbox" name="BEHEER_GEBRUIKERS" (change)="onCheckboxChange('BEHEER_GEBRUIKERS')"> Beheer Gebruikers</label>
+        <label class="checkbox-label"><input type="checkbox" name="BEHEER_ROLLEN" (change)="onCheckboxChange('BEHEER_ROLLEN')"> Beheer Rollen</label>
+        <label class="checkbox-label"><input type="checkbox" name="LEZEN" (change)="onCheckboxChange('LEZEN')"> Lezen</label>
+      </div>
+      <input [(ngModel)]="roleName" type="text" class="role-input" placeholder="Enter role name">
+      <button (click)="createRole()" class="enter-button">Create</button>
+    </div>
+  </div>
+</div>
+<div class="user-form-container">
+  <div class="user-form-card">
+    <div class="form-header">Update Existing Role</div>
+    <div class="form-body">
+      <div class="checkbox-group">
+        <label class="checkbox-label"><input type="checkbox" name="DOMEIN_BEHEER_ADMIN" (change)="onCheckboxChange('DOMEIN_BEHEER_ADMIN')"> Domein Beheer Admin</label>
+        <label class="checkbox-label"><input type="checkbox" name="DOMEIN_BEHEER_FICTER" (change)="onCheckboxChange('DOMEIN_BEHEER_FICTER')"> Domein Beheer Ficter</label>
+        <label class="checkbox-label"><input type="checkbox" name="BEHEER_GEBRUIKERS" (change)="onCheckboxChange('BEHEER_GEBRUIKERS')"> Beheer Gebruikers</label>
+        <label class="checkbox-label"><input type="checkbox" name="BEHEER_ROLLEN" (change)="onCheckboxChange('BEHEER_ROLLEN')"> Beheer Rollen</label>
+        <label class="checkbox-label"><input type="checkbox" name="LEZEN" (change)="onCheckboxChange('LEZEN')"> Lezen</label>
+      </div>
+      <input [(ngModel)]="roleName2" type="text" class="role-input" placeholder="Enter role name">
+      <input [(ngModel)]="roleId" type="text" class="role-input" placeholder="Enter role id">
+      <button (click)="updateRole()" class="enter-button">Update</button>
+    </div>
+  </div>
+</div>
+
+<!--Table if time left-->
+<!--<div class="card my-5">-->
+<!--  <div class="card-body">-->
+<!--    <table class="table table-bordered table-striped">-->
+<!--      <thead class="thead-dark">-->
+<!--      <tr>-->
+<!--        <th scope="col">Role Name</th>-->
+<!--        <th *ngFor="let permission of permissions">{{ permission }}</th>-->
+<!--      </tr>-->
+<!--      </thead>-->
+<!--      <tbody>-->
+<!--      <tr *ngFor="let role of roles">-->
+<!--        <td>{{ role.name }}</td>-->
+<!--        &lt;!&ndash;    <td class="score-cell">{{ role.permissions }}</td>&ndash;&gt;-->
+<!--        <td><label class="checkbox-label"><input type="checkbox" name="DOMEIN_BEHEER_ADMIN" (change)="onCheckboxChange('DOMEIN_BEHEER_ADMIN')"></label></td>-->
+<!--        <td><label class="checkbox-label"><input type="checkbox" name="DOMEIN_BEHEER_FICTER" (change)="onCheckboxChange('DOMEIN_BEHEER_FICTER')"></label></td>-->
+<!--        <td><label class="checkbox-label"><input type="checkbox" name="BEHEER_GEBRUIKERS" (change)="onCheckboxChange('BEHEER_GEBRUIKERS')"></label></td>-->
+<!--        <td><label class="checkbox-label"><input type="checkbox" name="BEHEER_ROLLEN" (change)="onCheckboxChange('BEHEER_ROLLEN')"></label></td>-->
+<!--        <td><label class="checkbox-label"><input type="checkbox" name="LEZEN" (change)="onCheckboxChange('LEZEN')"></label></td>-->
+
+<!--      </tr>-->
+<!--      </tbody>-->
+<!--    </table>-->
+<!--  </div>-->
+<!--</div>-->

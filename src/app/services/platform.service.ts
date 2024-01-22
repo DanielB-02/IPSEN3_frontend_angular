@@ -16,6 +16,10 @@ export class PlatformService {
     this.platformsUrl = BASIC_URL + 'platform';
   }
 
+  ngOnInit() {
+    this.findAll()
+  }
+
   public findAll(): Observable<Platform[]> {
     return this.http.get<Platform[]>(this.platformsUrl + '/sorted');
   }
