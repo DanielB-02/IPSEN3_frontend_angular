@@ -9,6 +9,7 @@ import {MainViewComponent} from "./view/main-view/main-view.component";
 import {DashboardComponent} from "./view/dashboard/dashboard.component";
 import {SignUpComponent} from "./view/sign-up/sign-up.component";
 import {DeleteUserComponent} from "./view/delete-user/delete-user.component";
+import {ArchiefComponent} from "./view/archief/archief.component";
 import {AddQuestionComponent} from "./view/add-question/add-question.component";
 import {DeleteUserComponent} from "./view/admin-panel/options/delete-user/delete-user.component";
 import {AddRoleComponent} from "./view/admin-panel/options/add-role/add-role.component";
@@ -24,7 +25,8 @@ const routes: Routes = [
       { path: 'adminpanel', component: AdminPanelComponent },
       { path: 'sign-up', component: SignUpComponent},
       { path: 'delete-user', component: DeleteUserComponent},
-      { path: 'add-question', component: AddQuestionComponent}
+      { path: 'archief', component: ArchiefComponent},
+      { path: 'add-question', component: AddQuestionComponent},
       { path: 'add-role', component: AddRoleComponent}
     ]
   },

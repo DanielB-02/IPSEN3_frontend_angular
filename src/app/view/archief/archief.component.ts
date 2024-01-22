@@ -1,33 +1,33 @@
-import {Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {Platform} from "../../model/platform/platform";
 import {PlatformService} from "../../services/platform.service";
-import {UserStorageService} from "../../auth/user-storage.service";
+import {Router, RouterLink} from "@angular/router";
 
 @Component({
-  selector: 'app-platform',
-  templateUrl: './platform.component.html',
-  styleUrl: './platform.component.scss'
+  selector: 'app-archief',
+  standalone: true,
+  imports: [CommonModule, RouterLink],
+  templateUrl: './archief.component.html',
+  styleUrl: './archief.component.scss'
 })
-export class PlatformComponent{
+export class ArchiefComponent {
   platforms: Platform[];
-  isReadonly: boolean = false;
 
-  constructor(private platformService: PlatformService,
-              private userStorageService: UserStorageService) {
+  constructor(private platformService: PlatformService) {
   }
-
   ngOnInit() {
     this.platformService.platforms$.subscribe(data => {
-      this.platforms = data.filter(platform => platform.status !== true);
+      this.platforms = data.filter(platform => platform.status !== false);
     });
-    this.isReadonly = this.userStorageService.isReadonly()
   }
   setPlatformStatusFalse(platform: Platform): void {
-    const isConfirmed = confirm(`Are you sure you want to archive the platform: ${platform.platformName}?`);
+
+    const isConfirmed = confirm(`Are you sure you want to restore the platform: ${platform.platformName}?`);
     if (isConfirmed) {
       const updatedPlatform = {
         ...platform,
-        status: true
+        status: false
       };
       this.platformService.updatePlatform(platform.id, updatedPlatform).subscribe({
         next: (updated) => {

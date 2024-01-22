@@ -45,8 +45,8 @@ $sidebar-box-shadow: 0px 0px 45px 0px rgba(0,0,0,0.6);
   background: #cccccc;
   color: #1C1C1E;
 }
-.archief-button {
-  background-color: #C13A16;
+.restore-button {
+  background-color: #038406;
   color: white;
   padding: 2px 8px;
   border: none;
@@ -54,6 +54,6 @@ $sidebar-box-shadow: 0px 0px 45px 0px rgba(0,0,0,0.6);
   border-radius: 4px;
 }
 
-.archief-button:hover {
-  background-color: #E96542; /* Darker shade on hover */
+.restore-button:hover {
+  background-color: #8bc34a; /* Darker shade on hover */
 }

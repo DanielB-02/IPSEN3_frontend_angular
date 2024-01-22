@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { ModelComponent } from './model/model.component';
 import { PlatformComponent } from './view/platform/platform.component';
 import { PlatformFormComponent } from './view/platform-form/platform-form.component';
 import {AppRoutingModule} from "./app.routes";
@@ -69,6 +68,6 @@ import {MatSelectModule} from "@angular/material/select";
     }
   ],
 
-  bootstrap: [AppComponent]
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
