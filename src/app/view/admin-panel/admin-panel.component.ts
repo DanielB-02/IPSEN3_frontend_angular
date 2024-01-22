@@ -27,8 +27,9 @@ export class AdminPanelComponent {
 
 
   navigateToAddQuestion(){
-    this.router.navigate(['/main-view/add-question']);
-  navigateToAddRole() {
+    this.router.navigate(['/main-view/add-question']);}
+  navigateToAddRole(){
     this.router.navigate(['/main-view/add-role']);
   }
 }
+
