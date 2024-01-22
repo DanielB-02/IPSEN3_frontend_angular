@@ -23,6 +23,8 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MainViewComponent} from "./view/main-view/main-view.component";
 import {SignUpComponent} from "./view/sign-up/sign-up.component";
 import {AddQuestionComponent} from "./view/add-question/add-question.component";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatSelectModule} from "@angular/material/select";
 
 // import { MatFormFieldModule } from "@angular/material/form-field";
 
@@ -53,7 +55,9 @@ import {AddQuestionComponent} from "./view/add-question/add-question.component";
     ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatMenuModule,
+    MatSelectModule
   ],
   providers: [
     PlatformService,
