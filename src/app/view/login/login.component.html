@@ -6,10 +6,10 @@
         <form [formGroup]="loginForm" class="login-form">
           <img class="login-form-logo" src="../../../assets/img/logo-spine.png" alt="Logo">
           <mat-form-field appearance="outline" class="login-form-input-field">
-            <mat-label>E-mail</mat-label>
-            <input matInput formControlName="email" placeholder="Email" required>
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="email" placeholder="Username" required>
             <mat-error *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">
-              Please enter a valid email address.
+              Please enter a valid username.
             </mat-error>
           </mat-form-field>
 
