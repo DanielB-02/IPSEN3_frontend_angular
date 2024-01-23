@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { ModelComponent } from './model/model.component';
 import { PlatformComponent } from './view/platform/platform.component';
 import { PlatformFormComponent } from './view/platform-form/platform-form.component';
 import {AppRoutingModule} from "./app.routes";
@@ -22,12 +21,15 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MainViewComponent} from "./view/main-view/main-view.component";
 import {SignUpComponent} from "./view/sign-up/sign-up.component";
+import {AddQuestionComponent} from "./view/add-question/add-question.component";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatSelectModule} from "@angular/material/select";
+
 // import { MatFormFieldModule } from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ModelComponent,
     PlatformComponent,
     PlatformFormComponent,
     DashboardComponent,
@@ -35,7 +37,8 @@ import {SignUpComponent} from "./view/sign-up/sign-up.component";
     NavigationColumnComponent,
     LoginComponent,
     MainViewComponent,
-    SignUpComponent
+    SignUpComponent,
+    AddQuestionComponent
   ],
 
   imports: [
@@ -50,7 +53,9 @@ import {SignUpComponent} from "./view/sign-up/sign-up.component";
     ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatMenuModule,
+    MatSelectModule
   ],
   providers: [
     PlatformService,
@@ -62,6 +67,6 @@ import {SignUpComponent} from "./view/sign-up/sign-up.component";
     }
   ],
 
-  bootstrap: [AppComponent]
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

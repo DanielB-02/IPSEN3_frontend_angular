@@ -1,23 +1,34 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Platform } from '../model/platform/platform';
-import {map, Observable} from "rxjs";
+import {BehaviorSubject, map, Observable, tap} from "rxjs";
 import {environment} from "../environments/environment";
 
 const BASIC_URL = environment['BASIC_URL'];
 
 @Injectable()
 export class PlatformService {
-
+  private platformsSubject = new BehaviorSubject<Platform[]>([]);
+  public platforms$ = this.platformsSubject.asObservable();
   private platformsUrl: string;
 
 
   constructor(private http: HttpClient) {
     this.platformsUrl = BASIC_URL + 'platform';
+    this.loadPlatforms();
+  }
+
+  ngOnInit() {
+    this.findAll()
   }
 
   public findAll(): Observable<Platform[]> {
     return this.http.get<Platform[]>(this.platformsUrl + '/sorted');
+  }
+  private loadPlatforms(): void {
+    this.http.get<Platform[]>(this.platformsUrl + '/sorted').subscribe(
+      data => this.platformsSubject.next(data)
+    );
   }
 
   public save(platform: Platform) {
@@ -42,6 +53,13 @@ export class PlatformService {
       return this.http.get<Platform>(`${this.platformsUrl}/${id}`);
   }
 
+  public updatePlatform(id: string, platform: Platform): Observable<Platform> {
+    return this.http.put<Platform>(`${this.platformsUrl}/${id}`, platform).pipe(
+      tap(updatedPlatform => {
+        this.loadPlatforms(); // Reload platforms to update the BehaviorSubject
+      })
+    );
+  }
   /*public showScoresOfAllPlatforms(): Observable<Platform[]> {
       return this.http.get<Platform[]>(this.platformsUrl + '/scoresAllPlatforms')
           .pipe(

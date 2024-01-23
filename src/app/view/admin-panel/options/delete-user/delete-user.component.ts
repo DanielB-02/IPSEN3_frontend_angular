@@ -1,7 +1,7 @@
 // delete-user.component.ts
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/user.service';
-import { User } from '../../model/user/user.model';
+import { UserService } from '../../../../services/user.service';
+import { User } from '../../../../model/user/user.model';
 import {CommonModule} from "@angular/common";
 
 

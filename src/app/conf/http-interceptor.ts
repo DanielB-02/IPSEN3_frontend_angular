@@ -8,7 +8,7 @@ export class ApiHeadersInterceptor implements HttpInterceptor {
     let headers = new HttpHeaders({
       'Content-Type': 'application/vnd.spine.api.v2+json',
       'Accept': 'application/vnd.spine.api.v2+json'
-    });
+    })
 
     if (req.url.indexOf('/auth/') < 0) {
       headers = headers.append('Authorization', 'Bearer ' + UserStorageService.getToken());

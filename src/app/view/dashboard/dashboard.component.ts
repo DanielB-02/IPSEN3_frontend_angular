@@ -16,7 +16,7 @@ export class DashboardComponent {
 
   ngOnInit() {
     this.platformService.findByScoreAsc().subscribe(data => {
-      this.platformsAsc = data;
+      this.platformsAsc = data.filter(platform => platform.status !== true);
     });
     this.platformService.findByScoreDesc().subscribe(data => {
       this.platformsDesc = data;

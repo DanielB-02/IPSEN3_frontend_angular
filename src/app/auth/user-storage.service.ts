@@ -91,4 +91,16 @@ export class UserStorageService {
     }
     return false;
   }
+  public isReadonlyOrFicter(): boolean {
+    const tokenJWT = localStorage.getItem(TOKEN);
+    if (tokenJWT) {
+      try {
+        const decodedJWT: JwtPayload = jwtDecode(tokenJWT);
+        return decodedJWT.role.some(role => role.authority === 'READONLY' || role.authority === 'FICTER');
+      } catch (error) {
+        console.error('Invalid token', error);
+      }
+    }
+    return false;
+  }
 }

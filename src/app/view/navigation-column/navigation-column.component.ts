@@ -12,6 +12,7 @@ import {AuthService} from "../../auth/auth.service";
 export class NavigationColumnComponent {
   isAdmin: boolean = false;
   isReadonly: boolean = false;
+  isNotReadOnlyOrFicter= false;
     constructor(
       private router: Router,
       private authService: AuthService,
@@ -19,7 +20,8 @@ export class NavigationColumnComponent {
   ) {}
   ngOnInit(): void {
     this.isAdmin = this.userStorageService.isAdmin();
-    this.isReadonly = this.userStorageService.isReadonly()
+    this.isReadonly = this.userStorageService.isReadonly();
+    this.isNotReadOnlyOrFicter = this.userStorageService.isReadonlyOrFicter();
   }
 
   uitloggenClicked(): void {

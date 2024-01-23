@@ -4,24 +4,34 @@ import {Platform} from "../../model/platform/platform";
 import {PlatformService} from "../../services/platform.service";
 import {FormGroup} from "@angular/forms";
 import * as stringSimilarity from 'string-similarity';
+import {QuestionService} from "../../services/question.service";
+import {Question} from "../../model/question/question";
+import {AnswerService} from "../../services/answer.service";
+import {Answer} from "../../model/answer/answer";
 
 @Component({
   selector: 'app-platform-form',
   templateUrl: './platform-form.component.html',
-  styleUrls: ['./platform-form.component.css']
+  styleUrls: ['./platform-form.component.scss']
 })
 export class PlatformFormComponent {
 
   platform: Platform;
   platforms: Platform[];
   errorShown: boolean =false;
+  private question: Question;
+  private answer: Answer;
+  firstResult;
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private platformService: PlatformService) {
-    this.platform = new Platform();
-  }
+      private questionService: QuestionService,
+      private route: ActivatedRoute,
+      private router: Router,
+      private platformService: PlatformService,
+      private answerService: AnswerService){
+        this.question = new Question(),
+        this.platform = new Platform(),
+        this.answer = new Answer()}
 
   ngOnInit() {
     this.platformService.findAll().subscribe(
@@ -31,9 +41,12 @@ export class PlatformFormComponent {
   }
   onSubmit() {
     if(this.checkName(this.platform.platformName)) {
-      this.platformService.save(this.platform).subscribe(result => this.gotoPlatformList());
+
+      this.platformService.save(this.platform).subscribe(result => this.gotoPlatformList(result));
+
     }
   }
+
 
   checkName(platformName:string){
     for(var existingPlatform of this.platforms){
@@ -55,7 +68,34 @@ export class PlatformFormComponent {
     return similarity >= (1 - tolerance);
   }
 
-  gotoPlatformList() {
+  createEmptyAnswer(question: Question){
+    this.answer.question = question;
+    this.answer.textAnswer = "";
+    this.answerService.submitNewAnswer(this.answer).subscribe();
+  }
+
+  setBasicQuestions(platform:Platform){
+
+    this.questionService.getQuestionsForPlatform(this.platforms[0].id)
+      .subscribe((questions: Question[]) => {
+
+      for (const otherPlatformQuestion of questions) {
+
+        this.question.platformId = platform.id;
+        this.question.textQuestion = otherPlatformQuestion.textQuestion;
+
+        this.questionService.createQuestion(this.question)
+          .subscribe(result => this.createEmptyAnswer(result));
+      }
+    })
+  }
+
+
+
+
+
+  gotoPlatformList(platform: Platform) {
+    this.setBasicQuestions(platform)
     this.router.navigateByUrl('main-view/platforms');
   }
 }

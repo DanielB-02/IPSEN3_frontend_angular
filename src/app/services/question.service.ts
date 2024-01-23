@@ -20,4 +20,8 @@ export class QuestionService {
     return this.http.get<Question[]>(url);
   }
 
+  public createQuestion(question: Question){
+    return this.http.post<Question>(this.platformsUrl, question);
+  }
+
 }
