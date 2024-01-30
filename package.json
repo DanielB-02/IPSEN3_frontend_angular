@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --configuration production && mkdir -p _static && mv dist/spine-frontend-angular/browser/* _static\",",
+    "build": "ng build --configuration production && mkdir -p _static && mv dist/spine-frontend-angular/browser/* _static",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
