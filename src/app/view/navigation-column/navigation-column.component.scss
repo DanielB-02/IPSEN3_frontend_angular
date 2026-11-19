@@ -1,9 +1,9 @@
-$primary-start: #FF0000; // Start color
-$primary-end: #FF7809; // End color
+$primary-start: #ff0000; // Start color
+$primary-end: #ff7809; // End color
 $opacity-8: rgba(255, 255, 255, 0.8); // Opacity for hover states
 $full-width: 100%; // Used for full width
 $white: #fff; // White color
-$sidebar-box-shadow: 0px 0px 45px 0px rgba(0,0,0,0.6); // Sidebar box shadow
+$sidebar-box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.6); // Sidebar box shadow
 
 .sidebar {
   height: calc(100vh - 90px);
@@ -41,7 +41,7 @@ $sidebar-box-shadow: 0px 0px 45px 0px rgba(0,0,0,0.6); // Sidebar box shadow
           padding: 10px 15px;
           text-decoration: none;
           display: block;
-          transition: background-color .3s;
+          transition: background-color 0.3s;
         }
 
         &:hover {
@@ -106,9 +106,11 @@ $sidebar-box-shadow: 0px 0px 45px 0px rgba(0,0,0,0.6); // Sidebar box shadow
 }
 
 .nav-text-element-repair {
-  font: 400 14px/20px Roboto, sans-serif;
+  font:
+    400 14px/20px Roboto,
+    sans-serif;
   color: white;
-  letter-spacing: .0178571429em;
+  letter-spacing: 0.0178571429em;
   margin: 10px 15px 0;
   &:hover {
     background: linear-gradient(170deg, darken($primary-start, 15%), darken($primary-end, 15%));
@@ -120,4 +122,3 @@ $sidebar-box-shadow: 0px 0px 45px 0px rgba(0,0,0,0.6); // Sidebar box shadow
   opacity: 0.5; // Grey out the link to indicate it is disabled
   pointer-events: none; // Prevents all click events on this element
 }
-

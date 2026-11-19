@@ -1,4 +1,4 @@
-$sidebar-box-shadow: 0px 0px 45px 0px rgba(0,0,0,0.6);
+$sidebar-box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.6);
 
 .score-header-list-platforms {
   width: 50px;
@@ -13,7 +13,8 @@ $sidebar-box-shadow: 0px 0px 45px 0px rgba(0,0,0,0.6);
   }
 
   tbody {
-    td, a {
+    td,
+    a {
       color: white;
     }
   }
@@ -41,12 +42,12 @@ $sidebar-box-shadow: 0px 0px 45px 0px rgba(0,0,0,0.6);
 .card {
   border: none;
 }
-.test{
+.test {
   background: #cccccc;
-  color: #1C1C1E;
+  color: #1c1c1e;
 }
 .archief-button {
-  background-color: #C13A16;
+  background-color: #c13a16;
   color: white;
   padding: 2px 8px;
   border: none;
@@ -55,5 +56,5 @@ $sidebar-box-shadow: 0px 0px 45px 0px rgba(0,0,0,0.6);
 }
 
 .archief-button:hover {
-  background-color: #E96542; /* Darker shade on hover */
+  background-color: #e96542; /* Darker shade on hover */
 }

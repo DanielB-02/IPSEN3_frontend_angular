@@ -1,14 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {Router} from "@angular/router";
-import {AuthService} from "../../auth/auth.service";
-import {UserStorageService} from "../../auth/user-storage.service";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { AuthService } from '../../auth/auth.service';
+import { UserStorageService } from '../../auth/user-storage.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private snackBar: MatSnackBar,
     private router: Router,
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-
     for (const i in this.loginForm.controls) {
       this.loginForm.controls[i].markAsDirty();
       this.loginForm.controls[i].updateValueAndValidity();
@@ -45,22 +44,17 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(email, password).subscribe(
       () => {
-
         if (UserStorageService.isCustomerLoggedIn()) {
           this.router.navigateByUrl('/main-view/dashboard');
         }
       },
       (error) => {
         if (error.status === 406) {
-          this.snackBar.open(
-            'User Is Not Active. Please Verify Email.',
-            'ERROR',
-            { duration: 5000 }
-          );
+          this.snackBar.open('User Is Not Active. Please Verify Email.', 'ERROR', { duration: 5000 });
         } else {
           this.snackBar.open('Bad credentials', 'ERROR', { duration: 5000 });
         }
-      }
+      },
     );
   }
 }

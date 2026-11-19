@@ -1,26 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import {Platform} from "../../model/platform/platform";
-import {PlatformService} from "../../services/platform.service";
+import { Platform } from '../../model/platform/platform';
+import { PlatformService } from '../../services/platform.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+  styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent implements OnInit {
   platformsAsc: Platform[];
   platformsDesc: Platform[];
 
-  constructor(private platformService: PlatformService) {
-  }
+  constructor(private platformService: PlatformService) {}
 
   ngOnInit() {
-    this.platformService.findByScoreAsc().subscribe(data => {
-      this.platformsAsc = data.filter(platform => platform.status !== true);
+    this.platformService.findByScoreAsc().subscribe((data) => {
+      this.platformsAsc = data.filter((platform) => platform.status !== true);
     });
-    this.platformService.findByScoreDesc().subscribe(data => {
+    this.platformService.findByScoreDesc().subscribe((data) => {
       this.platformsDesc = data;
     });
   }
-
 }

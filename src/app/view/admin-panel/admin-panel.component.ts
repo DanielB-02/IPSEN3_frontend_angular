@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {Router} from "@angular/router";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-panel',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './admin-panel.component.html',
-  styleUrl: './admin-panel.component.scss'
+  styleUrl: './admin-panel.component.scss',
 })
 export class AdminPanelComponent {
   constructor(private router: Router) {}
 
   navigateToAdminPanel() {
     this.router.navigate(['/dashboard']);
-}
+  }
   navigateToSignUp() {
     this.router.navigate(['/main-view/sign-up']);
   }
@@ -25,11 +25,10 @@ export class AdminPanelComponent {
     this.router.navigate(['/main-view/delete-user']);
   }
 
-
-  navigateToAddQuestion(){
-    this.router.navigate(['/main-view/add-question']);}
-  navigateToAddRole(){
+  navigateToAddQuestion() {
+    this.router.navigate(['/main-view/add-question']);
+  }
+  navigateToAddRole() {
     this.router.navigate(['/main-view/add-role']);
   }
 }
-

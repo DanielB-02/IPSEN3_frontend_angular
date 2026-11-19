@@ -11,10 +11,7 @@ describe('ApiHeadersInterceptor', () => {
   beforeEach(() => {
     localStorage.setItem('l_token', 'jwt-token');
     TestBed.configureTestingModule({
-      providers: [
-        ...TEST_PROVIDERS,
-        { provide: HTTP_INTERCEPTORS, useClass: ApiHeadersInterceptor, multi: true },
-      ],
+      providers: [...TEST_PROVIDERS, { provide: HTTP_INTERCEPTORS, useClass: ApiHeadersInterceptor, multi: true }],
     });
     http = TestBed.inject(HttpClient);
     httpMock = TestBed.inject(HttpTestingController);

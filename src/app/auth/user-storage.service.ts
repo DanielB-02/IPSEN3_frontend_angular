@@ -1,22 +1,21 @@
 import { Injectable } from '@angular/core';
-import {JwtPayload} from "../model/jwt/jwt.model";
-import {jwtDecode} from "jwt-decode";
+import { JwtPayload } from '../model/jwt/jwt.model';
+import { jwtDecode } from 'jwt-decode';
 
 const TOKEN = 'l_token';
 const USER = 'l_user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserStorageService {
-
   public saveToken(token: string): void {
     window.localStorage.removeItem(TOKEN);
     window.localStorage.setItem(TOKEN, token);
   }
 
   static hasToken(): boolean {
-    if ( this.getToken() === null){
+    if (this.getToken() === null) {
       return false;
     }
     return true;
@@ -53,7 +52,7 @@ export class UserStorageService {
   // }
 
   static isCustomerLoggedIn(): boolean {
-    if ( this.getToken() === null){
+    if (this.getToken() === null) {
       return false;
     }
     return true;
@@ -68,7 +67,7 @@ export class UserStorageService {
     if (tokenJWT) {
       try {
         const decodedJWT: JwtPayload = jwtDecode(tokenJWT);
-        return decodedJWT.role.some(role => role.authority === 'ADMIN');
+        return decodedJWT.role.some((role) => role.authority === 'ADMIN');
       } catch (error) {
         console.error('Invalid token', error);
       }
@@ -80,7 +79,7 @@ export class UserStorageService {
     if (tokenJWT) {
       try {
         const decodedJWT: JwtPayload = jwtDecode(tokenJWT);
-        return decodedJWT.role.some(role => role.authority === 'READONLY');
+        return decodedJWT.role.some((role) => role.authority === 'READONLY');
       } catch (error) {
         console.error('Invalid token', error);
       }
@@ -92,7 +91,7 @@ export class UserStorageService {
     if (tokenJWT) {
       try {
         const decodedJWT: JwtPayload = jwtDecode(tokenJWT);
-        return decodedJWT.role.some(role => role.authority === 'READONLY' || role.authority === 'FICTER');
+        return decodedJWT.role.some((role) => role.authority === 'READONLY' || role.authority === 'FICTER');
       } catch (error) {
         console.error('Invalid token', error);
       }

@@ -1,20 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import {RoleService} from "../../../../services/role.service";
-import {Role} from "../../../../model/role/role";
-import {FormsModule} from "@angular/forms";
-import {NgForOf} from "@angular/common";
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {RoleForm} from "../../../../model/api/role-form/role-form";
+import { RoleService } from '../../../../services/role.service';
+import { Role } from '../../../../model/role/role';
+import { FormsModule } from '@angular/forms';
+import { NgForOf } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { RoleForm } from '../../../../model/api/role-form/role-form';
 
 @Component({
   selector: 'app-add-role',
   standalone: true,
   templateUrl: './add-role.component.html',
-  imports: [
-    FormsModule,
-    NgForOf
-  ],
-  styleUrls: ['./add-role.component.scss']
+  imports: [FormsModule, NgForOf],
+  styleUrls: ['./add-role.component.scss'],
 })
 export class AddRoleComponent implements OnInit {
   roleName: string = '';
@@ -22,15 +19,18 @@ export class AddRoleComponent implements OnInit {
   roles: Role[] = [];
   message: string = '';
 
-  constructor(private roleService: RoleService, private snackBar: MatSnackBar) {}
+  constructor(
+    private roleService: RoleService,
+    private snackBar: MatSnackBar,
+  ) {}
 
   ngOnInit() {
-    this.roleService.readAll().subscribe(data => {
+    this.roleService.readAll().subscribe((data) => {
       this.roles = data;
-    })
+    });
   }
 
-    onCheckboxChange(permission: string): void {
+  onCheckboxChange(permission: string): void {
     // Handle checkbox changes to maintain the selected permissions
     const index = this.selectedPermissions.indexOf(permission);
 
@@ -43,27 +43,24 @@ export class AddRoleComponent implements OnInit {
     }
   }
 
-
   createRole(): void {
     // Create a Role object with the entered name and selected permissions
     const newRole: RoleForm = {
       name: this.roleName,
-      permissions: this.selectedPermissions
+      permissions: this.selectedPermissions,
     };
 
     // Call the create method in RoleService
     this.roleService.create(newRole).subscribe(
-        () => {
-          this.message = 'Role created successfully';
-          this.snackBar.open(this.message, 'Close', { duration: 3000 });
-        },
-        (error) => {
-          console.error('Error creating role:', error);
-          this.message = 'Error creating role';
-          this.snackBar.open(this.message, 'Close', { duration: 3000 });
-        }
+      () => {
+        this.message = 'Role created successfully';
+        this.snackBar.open(this.message, 'Close', { duration: 3000 });
+      },
+      (error) => {
+        console.error('Error creating role:', error);
+        this.message = 'Error creating role';
+        this.snackBar.open(this.message, 'Close', { duration: 3000 });
+      },
     );
   }
-
-
 }

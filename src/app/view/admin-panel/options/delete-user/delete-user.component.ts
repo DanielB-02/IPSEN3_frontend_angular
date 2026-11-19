@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../../services/user.service';
 import { User } from '../../../../model/user/user.model';
-import {CommonModule} from "@angular/common";
-
+import { CommonModule } from '@angular/common';
 
 @Component({
-    selector: 'app-delete-user',
-    standalone: true,
-    imports: [CommonModule],
-    templateUrl: './delete-user.component.html',
-    styleUrl: './delete-user.component.scss'
-  })
+  selector: 'app-delete-user',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './delete-user.component.html',
+  styleUrl: './delete-user.component.scss',
+})
 export class DeleteUserComponent implements OnInit {
   public users: User[] = [];
 
@@ -18,7 +17,7 @@ export class DeleteUserComponent implements OnInit {
 
   ngOnInit() {
     // Subscribe to the observable for real-time updates
-    this.userService.users$.subscribe(users => this.users = users);
+    this.userService.users$.subscribe((users) => (this.users = users));
 
     // Trigger the initial load of users
     this.userService.findAll();
@@ -32,7 +31,7 @@ export class DeleteUserComponent implements OnInit {
         },
         (error) => {
           console.error('Error deleting user:', error);
-        }
+        },
       );
     }
   }

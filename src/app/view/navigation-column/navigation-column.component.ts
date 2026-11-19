@@ -1,22 +1,22 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {UserStorageService} from "../../auth/user-storage.service";
-import {Router} from "@angular/router";
-import {AuthService} from "../../auth/auth.service";
+import { UserStorageService } from '../../auth/user-storage.service';
+import { Router } from '@angular/router';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-navigation-column',
   templateUrl: './navigation-column.component.html',
-  styleUrl: './navigation-column.component.scss'
+  styleUrl: './navigation-column.component.scss',
 })
 export class NavigationColumnComponent implements OnInit {
   isAdmin: boolean = false;
   isReadonly: boolean = false;
-  isNotReadOnlyOrFicter= false;
-    constructor(
-      private router: Router,
-      private authService: AuthService,
-      private userStorageService: UserStorageService
+  isNotReadOnlyOrFicter = false;
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private userStorageService: UserStorageService,
   ) {}
   ngOnInit(): void {
     this.isAdmin = this.userStorageService.isAdmin();
@@ -26,6 +26,6 @@ export class NavigationColumnComponent implements OnInit {
 
   uitloggenClicked(): void {
     this.router.navigateByUrl('/login');
-    this.authService.logout()
+    this.authService.logout();
   }
 }
