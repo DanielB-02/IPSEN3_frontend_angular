@@ -31,15 +31,10 @@ export class PlatformComponent{
         status: true
       };
       this.platformService.updatePlatform(platform.id, updatedPlatform).subscribe({
-        next: (updated) => {
-          console.log('Platform status updated', updated);
-        },
         error: (err) => {
           console.error('Error updating platform status', err);
         }
       });
-    } else {
-      console.log('Archiving cancelled');
     }
   }
 }

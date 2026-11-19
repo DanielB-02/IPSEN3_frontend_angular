@@ -3,8 +3,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import {AuthService} from "../../auth/auth.service";
-import { MatInput } from "@angular/material/input";
-import {AddRoleComponent} from "../admin-panel/options/add-role/add-role.component";
 import {RoleService} from "../../services/role.service";
 import {Role} from "../../model/role/role";
 
@@ -33,7 +31,6 @@ export class SignUpComponent {
   ngOnInit(): void {
     this.roleService.readAll().subscribe(data => {
       this.roles = data;
-      console.log(this.roles)
     })
     this.signupForm = this.fb.group({
       firstName: [null, [Validators.required]],
@@ -65,17 +62,13 @@ export class SignUpComponent {
 
       this.isSpinning = true;
 
-      // Perform the signup logic here
-      // Example: Assuming you have an AuthService with a signup method
       this.authService.register(this.signupForm.value).subscribe(
-        (response) => {
+        () => {
           this.isSpinning = false;
-          console.log(response);
           this.snackBar.open('Sign up successful!', 'Close', { duration: 5000 });
-          // Navigate to the login page or perform any other action
           this.router.navigateByUrl("/main-view/adminpanel");
         },
-        (error) => {
+        () => {
           this.isSpinning = false;
           this.snackBar.open('Sign up failed. Please try again.', 'Close', { duration: 5000, panelClass: 'error-snackbar' });
         }
@@ -86,10 +79,5 @@ export class SignUpComponent {
         this.signupForm.controls[i].updateValueAndValidity();
       }
     }
-  }
-
-  public setFictRole(fictRole: boolean) {
-    this.signupForm.get('fictRole').setValue(fictRole);
-    console.log(this.signupForm.get('fictRole'));
   }
 }

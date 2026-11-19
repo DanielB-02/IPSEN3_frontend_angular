@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {AuthService} from "../../auth/auth.service";
 import {Router} from "@angular/router";
 import {QuestionService} from "../../services/question.service";
 import {PlatformService} from "../../services/platform.service";
@@ -52,7 +49,6 @@ export class AddQuestionComponent {
         this.platforms = data;
 
         for(const existingPlatform of this.platforms){
-          console.log(existingPlatform.id);
           this.question.platformId = existingPlatform.id;
           this.question.textQuestion = this.questionForm.get('questionText').value;
           this.questionservice.createQuestion(this.question)

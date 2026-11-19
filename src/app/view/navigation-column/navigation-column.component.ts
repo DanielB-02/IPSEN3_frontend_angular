@@ -25,7 +25,6 @@ export class NavigationColumnComponent {
   }
 
   uitloggenClicked(): void {
-    // alert('tets');
     this.router.navigateByUrl('/login');
     this.authService.logout()
   }

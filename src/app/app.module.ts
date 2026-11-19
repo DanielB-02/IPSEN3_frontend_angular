@@ -25,8 +25,6 @@ import {AddQuestionComponent} from "./view/add-question/add-question.component";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatSelectModule} from "@angular/material/select";
 
-// import { MatFormFieldModule } from "@angular/material/form-field";
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +47,6 @@ import {MatSelectModule} from "@angular/material/select";
     BrowserAnimationsModule,
     MatCardModule,
     MatInputModule,
-    // MatFormFieldModule,
     ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,

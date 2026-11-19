@@ -48,17 +48,13 @@ export class LoginComponent {
     const password = this.loginForm.get('password')!.value;
 
     this.authService.login(email, password).subscribe(
-      (res) => {
+      () => {
 
         if (UserStorageService.isCustomerLoggedIn()) {
           this.router.navigateByUrl('/main-view/dashboard');
         }
-
-        console.log('res', res);
       },
       (error) => {
-        console.log('error', error);
-
         if (error.status === 406) {
           this.snackBar.open(
             'User Is Not Active. Please Verify Email.',

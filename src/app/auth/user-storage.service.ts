@@ -26,10 +26,6 @@ export class UserStorageService {
     return localStorage.getItem(TOKEN);
   }
 
-  // public saveUser(user): void {
-  //   window.localStorage.removeItem(USER);
-  //   window.localStorage.setItem(USER, JSON.stringify(user));
-  // }
   //
   // static getUser(): any {
   //   return JSON.parse(localStorage.getItem(USER));

@@ -18,10 +18,6 @@ export class PlatformService {
     this.loadPlatforms();
   }
 
-  ngOnInit() {
-    this.findAll()
-  }
-
   public findAll(): Observable<Platform[]> {
     return this.http.get<Platform[]>(this.platformsUrl + '/sorted');
   }
@@ -60,11 +56,5 @@ export class PlatformService {
       })
     );
   }
-  /*public showScoresOfAllPlatforms(): Observable<Platform[]> {
-      return this.http.get<Platform[]>(this.platformsUrl + '/scoresAllPlatforms')
-          .pipe(
-              map(platforms => platforms)
-          );
-  }*/
 
 }

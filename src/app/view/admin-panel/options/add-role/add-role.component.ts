@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {RoleService} from "../../../../services/role.service";
 import {Role} from "../../../../model/role/role";
 import {FormsModule} from "@angular/forms";
-import {Observable} from "rxjs";
 import {NgForOf} from "@angular/common";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {RoleForm} from "../../../../model/api/role-form/role-form";
@@ -19,8 +18,6 @@ import {RoleForm} from "../../../../model/api/role-form/role-form";
 })
 export class AddRoleComponent {
   roleName: string = '';
-  roleName2: string = '';
-  roleId: string = '';
   selectedPermissions: string[] = [];
   roles: Role[] = [];
   message: string = '';
@@ -30,7 +27,6 @@ export class AddRoleComponent {
   ngOnInit() {
     this.roleService.readAll().subscribe(data => {
       this.roles = data;
-      console.log(this.roles)
     })
   }
 
@@ -69,25 +65,5 @@ export class AddRoleComponent {
     );
   }
 
-  updateRole(): void {
-    // Create a Role object with the entered name and selected permissions
-    const newRole: RoleForm = {
-      name: this.roleName,
-      permissions: this.selectedPermissions
-    };
-
-    // Call the create method in RoleService
-    this.roleService.update(newRole, this.roleId).subscribe(
-        () => {
-          this.message = 'Role updated successfully';
-          this.snackBar.open(this.message, 'Close', { duration: 3000 });
-        },
-        (error) => {
-          console.error('Error updating role:', error);
-          this.message = 'Error updating role';
-          this.snackBar.open(this.message, 'Close', { duration: 3000 });
-        }
-    );
-  }
 
 }
