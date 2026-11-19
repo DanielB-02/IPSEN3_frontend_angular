@@ -1,0 +1,5 @@
+[
+  { "id": "1", "platformName": "Example Platform A", "score": 12, "status": false },
+  { "id": "2", "platformName": "Example Platform B", "score": 7, "status": false },
+  { "id": "3", "platformName": "Archived Platform", "score": 3, "status": true }
+]
