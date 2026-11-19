@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {Platform} from "../../model/platform/platform";
 import {PlatformService} from "../../services/platform.service";
-import {FormGroup} from "@angular/forms";
 import * as stringSimilarity from 'string-similarity';
 import {QuestionService} from "../../services/question.service";
 import {Question} from "../../model/question/question";
@@ -14,7 +13,7 @@ import {Answer} from "../../model/answer/answer";
   templateUrl: './platform-form.component.html',
   styleUrls: ['./platform-form.component.scss']
 })
-export class PlatformFormComponent {
+export class PlatformFormComponent implements OnInit {
 
   platform: Platform;
   platforms: Platform[];
@@ -49,7 +48,7 @@ export class PlatformFormComponent {
 
 
   checkName(platformName:string){
-    for(var existingPlatform of this.platforms){
+    for(const existingPlatform of this.platforms){
       if(existingPlatform.platformName == platformName ||
         this.isAlikeWithMisspelling(existingPlatform.platformName, platformName, 0.5)){
         this.errorShown = true;

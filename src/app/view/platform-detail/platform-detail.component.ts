@@ -9,7 +9,6 @@ import {AnswerService} from "../../services/answer.service";
 import { forkJoin } from 'rxjs';
 import {map} from "rxjs";
 import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
 import {UserStorageService} from "../../auth/user-storage.service";
 
 @Component({

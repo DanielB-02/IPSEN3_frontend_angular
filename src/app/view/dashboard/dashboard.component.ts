@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Platform} from "../../model/platform/platform";
 import {PlatformService} from "../../services/platform.service";
 
@@ -7,7 +7,7 @@ import {PlatformService} from "../../services/platform.service";
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   platformsAsc: Platform[];
   platformsDesc: Platform[];
 

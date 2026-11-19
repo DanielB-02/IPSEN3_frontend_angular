@@ -8,7 +8,7 @@ import {UserStorageService} from "../../auth/user-storage.service";
   templateUrl: './platform.component.html',
   styleUrl: './platform.component.scss'
 })
-export class PlatformComponent{
+export class PlatformComponent implements OnInit {
   platforms: Platform[];
   isReadonly: boolean = false;
   isNotReadOnlyOrFicter= false;

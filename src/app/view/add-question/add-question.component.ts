@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {QuestionService} from "../../services/question.service";
@@ -13,7 +13,7 @@ import {Answer} from "../../model/answer/answer";
   templateUrl: './add-question.component.html',
   styleUrl: './add-question.component.scss'
 })
-export class AddQuestionComponent {
+export class AddQuestionComponent implements OnInit {
   questionForm!: FormGroup;
   platforms: Platform[];
   question: Question;

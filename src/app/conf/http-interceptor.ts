@@ -4,7 +4,7 @@ import {UserStorageService} from "../auth/user-storage.service";
 
 @Injectable()
 export class ApiHeadersInterceptor implements HttpInterceptor {
-  intercept(req: HttpRequest<any>, next: HttpHandler) {
+  intercept(req: HttpRequest<unknown>, next: HttpHandler) {
     let headers = new HttpHeaders({
       'Content-Type': 'application/vnd.spine.api.v2+json',
       'Accept': 'application/vnd.spine.api.v2+json'

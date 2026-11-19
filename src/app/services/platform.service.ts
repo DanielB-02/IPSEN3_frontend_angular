@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Platform } from '../model/platform/platform';
 import {BehaviorSubject, map, Observable, tap} from "rxjs";
 import {environment} from "../environments/environment";
@@ -51,7 +51,7 @@ export class PlatformService {
 
   public updatePlatform(id: string, platform: Platform): Observable<Platform> {
     return this.http.put<Platform>(`${this.platformsUrl}/${id}`, platform).pipe(
-      tap(updatedPlatform => {
+      tap(() => {
         this.loadPlatforms(); // Reload platforms to update the BehaviorSubject
       })
     );

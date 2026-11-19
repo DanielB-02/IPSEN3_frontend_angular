@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {isEmpty, Observable} from 'rxjs';
+import {Observable} from 'rxjs';
 import { Answer } from '../model/answer/answer';
 
 import {environment} from "../environments/environment";
 import {AnswerForm} from "../model/api/answer-form/answer-form";
 import {QuestionService} from "./question.service";
-import {Question} from "../model/question/question";
 
 const BASIC_URL = environment['BASIC_URL'];
 
@@ -56,7 +55,7 @@ export class AnswerService {
     }
 
 
-  };
+  }
 
 
   submitNewAnswer(answer: Answer): Observable<Answer> {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {RoleService} from "../../../../services/role.service";
 import {Role} from "../../../../model/role/role";
 import {FormsModule} from "@angular/forms";
@@ -16,7 +16,7 @@ import {RoleForm} from "../../../../model/api/role-form/role-form";
   ],
   styleUrls: ['./add-role.component.scss']
 })
-export class AddRoleComponent {
+export class AddRoleComponent implements OnInit {
   roleName: string = '';
   selectedPermissions: string[] = [];
   roles: Role[] = [];

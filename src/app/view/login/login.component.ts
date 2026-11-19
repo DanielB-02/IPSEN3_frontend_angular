@@ -1,8 +1,4 @@
-import {Component, Input} from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {MatCardModule} from "@angular/material/card";
-import {MatInputModule} from "@angular/material/input";
-import {MatIconModule} from "@angular/material/icon";
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
@@ -14,7 +10,7 @@ import {UserStorageService} from "../../auth/user-storage.service";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   hidePassword = true;
   showLoginScreen: boolean = true;

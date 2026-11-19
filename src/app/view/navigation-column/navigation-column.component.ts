@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewChild, AfterViewInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import {UserStorageService} from "../../auth/user-storage.service";
 import {Router} from "@angular/router";
@@ -9,7 +9,7 @@ import {AuthService} from "../../auth/auth.service";
   templateUrl: './navigation-column.component.html',
   styleUrl: './navigation-column.component.scss'
 })
-export class NavigationColumnComponent {
+export class NavigationColumnComponent implements OnInit {
   isAdmin: boolean = false;
   isReadonly: boolean = false;
   isNotReadOnlyOrFicter= false;

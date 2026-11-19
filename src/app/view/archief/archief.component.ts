@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Platform} from "../../model/platform/platform";
 import {PlatformService} from "../../services/platform.service";
-import {Router, RouterLink} from "@angular/router";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-archief',
@@ -11,7 +11,7 @@ import {Router, RouterLink} from "@angular/router";
   templateUrl: './archief.component.html',
   styleUrl: './archief.component.scss'
 })
-export class ArchiefComponent {
+export class ArchiefComponent implements OnInit {
   platforms: Platform[];
 
   constructor(private platformService: PlatformService) {

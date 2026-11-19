@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {User} from "../model/user/user.model";
 import {environment} from "../environments/environment";
 import {Role} from "../model/role/role";
 import {Observable} from "rxjs";
-import {Platform} from "../model/platform/platform";
 import {RoleForm} from "../model/api/role-form/role-form";
 
 @Injectable({
@@ -27,7 +25,7 @@ export class RoleService {
       });
   }
 
-  public update(role: RoleForm, id: String): Observable<RoleForm> {
+  public update(role: RoleForm, id: string): Observable<RoleForm> {
     return this.http.put<RoleForm>(`${this.roleUrl}/${id}`,
       {
         "name": role.name,

@@ -10,22 +10,20 @@ const BASIC_URL = environment['BASIC_URL'];
   providedIn: 'root'
 })
 export class AuthService {
-  session: any;
-
   constructor(
     private http: HttpClient,
     private userStorageService: UserStorageService
   ) { }
 
-  login(email: string, password: string): any {
+  login(email: string, password: string): Observable<boolean> {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     const body = { email, password };
 
-    return this.http.post(BASIC_URL + 'auth/signin', body, { headers, observe: 'response' }).pipe(
+    return this.http.post<{ token: string }>(BASIC_URL + 'auth/signin', body, { headers, observe: 'response' }).pipe(
       map((res) => {
         const tokenResponse = res.body;
         if (tokenResponse) {
-          this.userStorageService.saveToken(tokenResponse["token"]);
+          this.userStorageService.saveToken(tokenResponse.token);
           return true;
         }
         return false;
@@ -39,10 +37,9 @@ export class AuthService {
 
   logout() {
     this.userStorageService.signOut();
-    this.session = undefined;
   }
 
-  register(signupRequest: any): Observable<any> {
+  register(signupRequest: Record<string, unknown>): Observable<unknown> {
     return this.http.post(BASIC_URL + "signup", signupRequest);
   }
 
