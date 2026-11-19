@@ -1,23 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { NavigationColumnComponent } from './navigation-column.component';
+import { TEST_IMPORTS, TEST_PROVIDERS } from '../../../testing/test-setup';
 
 describe('NavigationColumnComponent', () => {
-  let component: NavigationColumnComponent;
   let fixture: ComponentFixture<NavigationColumnComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [NavigationColumnComponent]
-    })
-    .compileComponents();
-    
+      declarations: [NavigationColumnComponent],
+      imports: TEST_IMPORTS,
+      providers: TEST_PROVIDERS,
+    }).compileComponents();
+
     fixture = TestBed.createComponent(NavigationColumnComponent);
-    component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(fixture.componentInstance).toBeTruthy();
   });
 });
