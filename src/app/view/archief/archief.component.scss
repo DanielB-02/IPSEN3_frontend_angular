@@ -1,4 +1,4 @@
-$sidebar-box-shadow: 0px 0px 45px 0px rgba(0,0,0,0.6);
+$sidebar-box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.6);
 
 .score-header-list-platforms {
   width: 50px;
@@ -13,7 +13,8 @@ $sidebar-box-shadow: 0px 0px 45px 0px rgba(0,0,0,0.6);
   }
 
   tbody {
-    td, a {
+    td,
+    a {
       color: white;
     }
   }
@@ -41,9 +42,9 @@ $sidebar-box-shadow: 0px 0px 45px 0px rgba(0,0,0,0.6);
 .card {
   border: none;
 }
-.test{
+.test {
   background: #cccccc;
-  color: #1C1C1E;
+  color: #1c1c1e;
 }
 .restore-button {
   background-color: #038406;

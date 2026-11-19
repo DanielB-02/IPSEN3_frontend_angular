@@ -1,23 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DeleteUserComponent } from './delete-user.component';
+import { TEST_PROVIDERS } from '../../../../../testing/test-setup';
 
 describe('DeleteUserComponent', () => {
-  let component: DeleteUserComponent;
   let fixture: ComponentFixture<DeleteUserComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DeleteUserComponent]
-    })
-    .compileComponents();
-    
+      imports: [DeleteUserComponent],
+      providers: TEST_PROVIDERS,
+    }).compileComponents();
+
     fixture = TestBed.createComponent(DeleteUserComponent);
-    component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(fixture.componentInstance).toBeTruthy();
   });
 });

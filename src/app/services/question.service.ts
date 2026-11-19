@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Question } from '../model/question/question';
 
-import {environment} from "../environments/environment";
+import { environment } from '../environments/environment';
 
 const BASIC_URL = environment['BASIC_URL'];
 
@@ -20,8 +20,7 @@ export class QuestionService {
     return this.http.get<Question[]>(url);
   }
 
-  public createQuestion(question: Question){
+  public createQuestion(question: Question) {
     return this.http.post<Question>(this.platformsUrl, question);
   }
-
 }

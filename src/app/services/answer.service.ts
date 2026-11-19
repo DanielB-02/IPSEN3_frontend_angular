@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {isEmpty, Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 import { Answer } from '../model/answer/answer';
 
-import {environment} from "../environments/environment";
-import {AnswerForm} from "../model/api/answer-form/answer-form";
-import {QuestionService} from "./question.service";
-import {Question} from "../model/question/question";
+import { environment } from '../environments/environment';
+import { AnswerForm } from '../model/api/answer-form/answer-form';
+import { QuestionService } from './question.service';
 
 const BASIC_URL = environment['BASIC_URL'];
 
@@ -16,7 +15,8 @@ export class AnswerService {
 
   constructor(
     private questionService: QuestionService,
-    private http: HttpClient) {
+    private http: HttpClient,
+  ) {
     this.answersUrl = BASIC_URL + 'answer';
   }
 
@@ -27,47 +27,41 @@ export class AnswerService {
 
   submitAlteredAnswer(answer: Answer): Observable<Answer> {
     const url: string = `${this.answersUrl}/${answer.id}`;
-    const answerForm : AnswerForm = {
+    const answerForm: AnswerForm = {
       textAnswer: answer.textAnswer,
       questionId: answer.question.id,
-      score: this.checkIfRisico(answer)
+      score: this.checkIfRisico(answer),
     };
     return this.http.put<Answer>(url, answerForm);
   }
 
-  checkIfRisico(answer: Answer){
-    if (answer.textAnswer.trim().length === 0){
+  checkIfRisico(answer: Answer) {
+    if (answer.textAnswer.trim().length === 0) {
       return 0;
     }
-    switch (answer.question.textQuestion){
-      case "Jurisprudentie":
+    switch (answer.question.textQuestion) {
+      case 'Jurisprudentie':
         return 3;
 
-      case "Online Outreach":
-      case "Wetenschappelijke artikelen":
-      case "Krantenartikelen":
-      case "Chat met Fier":
-      case "Meldingen overig":
+      case 'Online Outreach':
+      case 'Wetenschappelijke artikelen':
+      case 'Krantenartikelen':
+      case 'Chat met Fier':
+      case 'Meldingen overig':
         return 1;
 
       default:
         return 0;
-
     }
-
-
-  };
-
+  }
 
   submitNewAnswer(answer: Answer): Observable<Answer> {
     const url: string = this.answersUrl;
-    const answerForm : AnswerForm = {
+    const answerForm: AnswerForm = {
       textAnswer: answer.textAnswer,
       questionId: answer.question.id,
-      score: 0
+      score: 0,
     };
     return this.http.post<Answer>(url, answerForm);
   }
-
-
 }

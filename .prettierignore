@@ -1,0 +1,7 @@
+dist
+_static
+coverage
+node_modules
+.angular
+package-lock.json
+*.html
