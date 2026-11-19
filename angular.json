@@ -95,11 +95,23 @@
               "@angular/material/prebuilt-themes/indigo-pink.css"
             ]
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "6b4e670b-efbb-49a1-a880-9fe9b07f0bc7"
+    "analytics": "6b4e670b-efbb-49a1-a880-9fe9b07f0bc7",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
