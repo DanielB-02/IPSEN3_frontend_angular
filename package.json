@@ -10,7 +10,9 @@
     "e2e": "cypress run",
     "e2e:open": "cypress open",
     "test:ci": "ng test --watch=false --browsers=ChromeHeadless",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "format": "prettier --write \"{src,cypress}/**/*.{ts,scss,json}\"",
+    "format:check": "prettier --check \"{src,cypress}/**/*.{ts,scss,json}\""
   },
   "private": true,
   "dependencies": {
@@ -52,6 +54,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "prettier": "^3.10.1",
     "typescript": "~5.2.2"
   }
 }
