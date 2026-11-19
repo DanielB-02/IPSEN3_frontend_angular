@@ -34,10 +34,20 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
+      - run: npm ci
+      - name: Start dev server
+        run: npx ng serve --host 127.0.0.1 --port 4200 > ng-serve.log 2>&1 &
+      - name: Wait for dev server
+        run: timeout 180 bash -c 'until curl -sf http://127.0.0.1:4200 > /dev/null; do sleep 2; done'
       - name: Cypress (backend calls are stubbed)
-        uses: cypress-io/github-action@v6
+        run: npx cypress run --config baseUrl=http://127.0.0.1:4200
+      - name: Dev server log
+        if: failure()
+        run: cat ng-serve.log
+      - name: Upload Cypress screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
         with:
-          start: npx ng serve --host 127.0.0.1 --port 4200
-          wait-on: http://127.0.0.1:4200
-          wait-on-timeout: 180
-          config: baseUrl=http://127.0.0.1:4200
+          name: cypress-screenshots
+          path: cypress/screenshots
+          if-no-files-found: ignore
