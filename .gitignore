@@ -40,3 +40,16 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Deployment output (see "build" script)
+/_static
+
+# Cypress artifacts
+cypress/downloads/
+cypress/screenshots/
+cypress/videos/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
